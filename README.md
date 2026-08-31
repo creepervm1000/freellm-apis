@@ -51,19 +51,19 @@ Groq offers the fastest inference of any provider on this list thanks to their c
 
 ---
 
-### DeepSeek
+### OVHcloud AI Endpoints
 
 | Detail | Info |
 |--------|------|
-| **Models** | DeepSeek V4 Pro, DeepSeek V4 Flash |
-| **API Endpoint** | `https://api.deepseek.com/v1` (OpenAI-compatible) |
-| **Sign Up** | [platform.deepseek.com](https://platform.deepseek.com) |
-| **Auth** | API key from dashboard |
-| **Rate Limits** | 5M free tokens on signup, valid 30 days |
+| **Models** | 20+ open-weight models including Llama, Qwen, DeepSeek, Mistral, and more |
+| **API Endpoint** | `https://europe-west1.inference.ai.ovh.net/v1` (OpenAI-compatible) |
+| **Sign Up** | None required for anonymous tier |
+| **Auth** | No key needed (anonymous) or OVHcloud account for higher limits |
+| **Rate Limits** | 2 RPM per IP per model (anonymous) |
 | **Credit Card** | Not required |
-| **Notes** | Best value signup credits of any provider. Strong reasoning models. Credits work across all models. |
+| **Notes** | Fully anonymous — no signup, no API key. 20+ models. Hosted in EU (GDPR). OpenAI-compatible. |
 
-DeepSeek gives every new account 5 million free tokens on signup — no credit card required — valid for 30 days. That's the most generous signup grant of any provider on this list. DeepSeek's models, particularly V4 Pro and V4 Flash, are strong general-purpose and reasoning models that punch well above their price point (which is free for the first 5M tokens). The API is fully OpenAI-compatible. The main catch is that this is a one-time grant, not a permanent free tier — once the 5M tokens are used or expire after 30 days, you'll need to pay. But for getting started, evaluating models, or running a significant batch of requests, nothing beats 5 million free tokens.
+OVHcloud AI Endpoints offers a completely anonymous free tier — no account, no API key, no signup form, no email verification. Just send a request to their endpoint and it works. They host 20+ open-weight models (Llama, Qwen, DeepSeek, Mistral, etc.) on EU infrastructure, making them one of the best options for GDPR-conscious developers who need data to stay in Europe. The rate limit is 2 requests per minute per IP per model, which is low but workable for light use. The API is fully OpenAI-compatible. If you need higher limits, creating a free OVHcloud account raises the rate limits significantly. Alongside LLM7.io, this is one of only two providers on this list that requires literally zero friction to start using.
 
 ---
 
@@ -221,7 +221,7 @@ Cloudflare Workers AI runs models on Cloudflare's global edge network, which mea
 | **Auth** | No key needed (anonymous) or free token from token.llm7.io for higher limits |
 | **Rate Limits** | 10 RPM, 60 req/hr (anonymous); higher with free token |
 | **Credit Card** | Not required |
-| **Notes** | The only provider on this list that requires zero sign-up. Just hit the API. |
+| **Notes** | Zero sign-up needed. Just hit the API. One of two no-auth providers on this list. |
 
 LLM7.io is unique on this list because it requires **no account and no API key** for anonymous access. You can literally start making requests immediately with zero friction. The anonymous tier has 128K context on models like GPT-oss-20B and Mistral Nemo. If you want higher rate limits, you can grab a free token from their site, but even the anonymous tier is usable. This makes LLM7.io the fastest provider to get started with — no sign-up form, no email verification, no dashboard. Just point your code at the endpoint and go.
 
@@ -265,7 +265,7 @@ Kilocode Gateway is an aggregator that provides access to multiple models throug
 |----------|-----------|----------------|----------|
 | Google Gemini | Google API | Yes | Long context (up to 1M tokens) |
 | Groq | OpenAI-compatible | Yes | Speed + generous limits |
-| DeepSeek | OpenAI-compatible | Trial credits | Strong reasoning, best signup bonus (5M tokens) |
+| OVHcloud AI | OpenAI-compatible | Yes | Anonymous, no signup, EU-hosted, GDPR |
 | Mistral AI | OpenAI-compatible | Yes | Flagship models for free |
 | SiliconFlow | OpenAI-compatible | Partial (free labeled) | Permanently free models, Chinese/international |
 | Zhipu AI | OpenAI-compatible | Partial (free models) | GLM models, Chinese/English, 200K context |
