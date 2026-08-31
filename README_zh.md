@@ -51,19 +51,19 @@ Groq 凭借其定制的 LPU（语言处理单元）芯片提供了本列表中�
 
 ---
 
-### DeepSeek
+### OVHcloud AI Endpoints
 
 | 项目 | 信息 |
 |------|------|
-| **模型** | DeepSeek V4 Pro、DeepSeek V4 Flash |
-| **API 端点** | `https://api.deepseek.com/v1`（兼容 OpenAI）|
-| **注册** | [platform.deepseek.com](https://platform.deepseek.com) |
-| **认证** | 从仪表盘获取 API 密钥 |
-| **速率限制** | 注册赠送 500 万免费 tokens，有效期 30 天 |
+| **模型** | 20+ 开源权重模型，包括 Llama、Qwen、DeepSeek、Mistral 等 |
+| **API 端点** | `https://europe-west1.inference.ai.ovh.net/v1`（兼容 OpenAI）|
+| **注册** | 匿名层级无需注册 |
+| **认证** | 无需密钥（匿名）或 OVHcloud 账户以获得更高限制 |
+| **速率限制** | 每个 IP 每个模型 2 RPM（匿名）|
 | **需要信用卡** | 否 |
-| **备注** | 所有提供商中注册赠送最多的 tokens。强大的推理模型。积分可用于所有模型。 |
+| **备注** | 完全匿名 —— 无需注册，无需 API 密钥。20+ 模型。托管在欧盟（GDPR）。兼容 OpenAI。 |
 
-DeepSeek 为每个新账户在注册时赠送 500 万免费 tokens —— 不需要信用卡 —— 有效期 30 天。这是本列表中任何提供商最慷慨的注册赠金。DeepSeek 的模型，特别是 V4 Pro 和 V4 Flash，是强大的通用和推理模型，性价比极高（前 500 万 tokens 完全免费）。API 完全兼容 OpenAI。主要缺点是这是一次性赠金，不是永久免费层级 —— 500 万 tokens 用完或 30 天过期后，你需要付费。但对于开始使用、评估模型或运行大量请求，没有什么比 500 万免费 tokens 更好的了。
+OVHcloud AI Endpoints 提供完全匿名的免费层级 —— 无需账户、无需 API 密钥、无需注册表单、无需邮箱验证。只需向其端点发送请求即可使用。他们在欧盟基础设施上托管 20+ 开源权重模型（Llama、Qwen、DeepSeek、Mistral 等），使其成为注重 GDPR 的开发者的最佳选择之一，确保数据留在欧洲。速率限制为每个 IP 每个模型每分钟 2 个请求，虽然较低但对于轻度使用是可行的。API 完全兼容 OpenAI。如果需要更高的限制，创建免费的 OVHcloud 账户可以显著提高速率限制。与 LLM7.io 一样，这是本列表中仅有的两个完全零摩擦即可开始使用的提供商之一。
 
 ---
 
@@ -221,7 +221,7 @@ Cloudflare Workers AI 在 Cloudflare 的全球边缘网络上运行模型，这�
 | **认证** | 无需密钥（匿名）或从 token.llm7.io 获取免费令牌以提高限制 |
 | **速率限制** | 10 RPM，60 请求/小时（匿名）；使用免费令牌更高 |
 | **需要信用卡** | 否 |
-| **备注** | 本列表中唯一不需要任何注册的提供商。直接调用 API 即可。 |
+| **备注** | 零注册即可使用。本列表中两个无需认证的提供商之一。 |
 
 LLM7.io 在本列表中是独一无二的，因为它**不需要账户也不需要 API 密钥**即可匿名访问。你可以字面意义上立即开始发请求，零摩擦。匿名层级在 GPT-oss-20B 和 Mistral Nemo 等模型上支持 128K 上下文。如果你想要更高的速率限制，可以从他们的网站获取免费令牌，但即使匿名层级也是可用的。这使得 LLM7.io 是上手最快的提供商 —— 没有注册表单，没有邮箱验证，没有仪表盘。只需将你的代码指向端点即可。
 
@@ -265,7 +265,7 @@ Kilocode Gateway 充当聚合器，通过兼容 OpenAI 的 API 提供对多个�
 |--------|-----------|------------|--------|
 | Google Gemini | Google API | 是 | 超长上下文（高达 100 万 tokens）|
 | Groq | 兼容 OpenAI | 是 | 速度 + 慷慨的限制 |
-| DeepSeek | 兼容 OpenAI | 试用积分 | 强大推理模型，最佳注册赠金（500 万 tokens）|
+| OVHcloud AI | 兼容 OpenAI | 是 | 匿名，无需注册，欧盟托管，GDPR |
 | Mistral AI | 兼容 OpenAI | 是 | 免费获得旗舰模型 |
 | SiliconFlow | 兼容 OpenAI | 部分（标注免费）| 永久免费模型，中国/国际 |
 | 智谱 AI | 兼容 OpenAI | 部分（免费模型）| GLM 模型，中英文，200K 上下文 |
@@ -275,7 +275,7 @@ Kilocode Gateway 充当聚合器，通过兼容 OpenAI 的 API 提供对多个�
 | NVIDIA NIM | 兼容 OpenAI | 是 | 嵌入模型，NVIDIA 优化模型 |
 | Hugging Face | 兼容 OpenAI | 部分（按积分计费）| 最大的模型目录 |
 | Cloudflare Workers AI | CF REST | 是 | 边缘推理，75+ 免费模型 |
-| LLM7.io | 兼容 OpenAI | 是 | 零摩擦匿名访问 |
+| LLM7.io | 兼容 OpenAI | 是 | 零摩擦匿名访问，10 RPM |
 | OpenAI Codex | CLI | 不适用 | 代码生成任务 |
 | Kilocode Gateway | 兼容 OpenAI | 免费标注 | 自动路由，200 请求/小时，无需密钥 |
 
