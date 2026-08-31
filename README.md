@@ -23,15 +23,15 @@ Most "free LLM API" lists are bloated with providers that are dead, require paym
 
 | Detail | Info |
 |--------|------|
-| **Models** | Gemini 2.0 Flash, Gemini 1.5 Pro, Gemini 1.5 Flash, and more |
+| **Models** | Gemini 2.5 Pro, Gemini 2.5 Flash, Gemini 3.5 Flash, Gemini 3.6 Flash, Gemma 4, and more |
 | **API Endpoint** | `https://generativelanguage.googleapis.com/v1beta` |
 | **Sign Up** | [aistudio.google.com](https://aistudio.google.com) |
 | **Auth** | Google account, API key from AI Studio dashboard |
-| **Rate Limits** | ~10 RPM, ~250K tokens/min, ~1M tokens/day |
+| **Rate Limits** | ~5-15 RPM depending on model, ~1M tokens/day |
 | **Credit Card** | Not required |
-| **Notes** | Massive context windows (up to 2M tokens on some models). Per-project quotas. |
+| **Notes** | Massive context windows (up to 1M tokens). Per-project quotas. Free-tier prompts may be used by Google for model improvement. |
 
-Google AI Studio provides free access to the Gemini model family with remarkably generous token quotas. The standout feature is context window size — some Gemini models support up to 2 million tokens, which is useful for processing large documents or long conversation histories. The free tier uses per-project quotas, so you can create multiple projects to effectively multiply your limits. The API uses Google's own format (not OpenAI-compatible), but there are open-source wrappers that add OpenAI compatibility. Also includes free access to their web UI for quick testing.
+Google AI Studio provides free access to the Gemini model family with remarkably generous token quotas. The standout feature is context window size — Gemini models support up to 1 million tokens, which is useful for processing large documents or long conversation histories. The free tier uses per-project quotas, so you can create multiple projects to effectively multiply your limits. The API uses Google's own format (not OpenAI-compatible), but there are open-source wrappers that add OpenAI compatibility. Also includes free access to their web UI for quick testing.
 
 ---
 
@@ -39,31 +39,31 @@ Google AI Studio provides free access to the Gemini model family with remarkably
 
 | Detail | Info |
 |--------|------|
-| **Models** | Llama 3.3 70B, Llama 3.1 8B, Llama 4 Scout, Qwen3 32B, Mixtral, and more |
+| **Models** | GPT-oss-120B, GPT-oss-20B, Qwen3.6-27B, Groq Compound, and more |
 | **API Endpoint** | `https://api.groq.com/openai/v1` (OpenAI-compatible) |
 | **Sign Up** | [console.groq.com](https://console.groq.com) |
 | **Auth** | API key from dashboard |
-| **Rate Limits** | 30 req/min, 6,000 tokens/min, 14,400 req/day |
+| **Rate Limits** | 30 req/min, 6,000 tokens/min, up to 1,000 req/day per model |
 | **Credit Card** | Not required |
 | **Notes** | Ultra-low-latency inference on LPU chips. All models free. One of the most generous free tiers. |
 
-Groq offers the fastest inference of any provider on this list thanks to their custom LPU (Language Processing Unit) chips. The free tier gives access to every model on their platform with no restrictions on which models you can use. At 30 requests per minute and 14,400 requests per day, the rate limits are generous enough for serious development work. The API is fully OpenAI-compatible — just swap the base URL and API key in any OpenAI SDK or compatible tool. This is one of the best free tiers available for real-time applications where latency matters.
+Groq offers the fastest inference of any provider on this list thanks to their custom LPU (Language Processing Unit) chips. The free tier gives access to every model on their platform with no restrictions on which models you can use. At 30 requests per minute, the rate limits are generous enough for serious development work. The API is fully OpenAI-compatible — just swap the base URL and API key in any OpenAI SDK or compatible tool. This is one of the best free tiers available for real-time applications where latency matters.
 
 ---
 
-### Cerebras
+### DeepSeek
 
 | Detail | Info |
 |--------|------|
-| **Models** | Llama 3.1 70B, Llama 3.1 8B, and more from their model catalog |
-| **API Endpoint** | `https://api.cerebras.ai/v1` (OpenAI-compatible) |
-| **Sign Up** | [cloud.cerebras.ai](https://cloud.cerebras.ai) |
+| **Models** | DeepSeek V4 Pro, DeepSeek V4 Flash |
+| **API Endpoint** | `https://api.deepseek.com/v1` (OpenAI-compatible) |
+| **Sign Up** | [platform.deepseek.com](https://platform.deepseek.com) |
 | **Auth** | API key from dashboard |
-| **Rate Limits** | 5 req/min, ~30K tokens/min, 1M tokens/day |
+| **Rate Limits** | 5M free tokens on signup, valid 30 days |
 | **Credit Card** | Not required |
-| **Notes** | World's fastest inference (CS-3 wafer-scale chip). Free tier limited to 8K context. |
+| **Notes** | Best value signup credits of any provider. Strong reasoning models. Credits work across all models. |
 
-Cerebras runs on their CS-3 wafer-scale engine — a single chip the size of an entire wafer — which makes it the fastest inference hardware available. The free tier offers a generous 1 million tokens per day, but the request rate is low (5 per minute) and the context window is capped at 8,192 tokens on the free tier (compared to 128K on paid). Best suited for batch processing tasks where you need throughput over the course of a day rather than high requests-per-minute. The API is OpenAI-compatible.
+DeepSeek gives every new account 5 million free tokens on signup — no credit card required — valid for 30 days. That's the most generous signup grant of any provider on this list. DeepSeek's models, particularly V4 Pro and V4 Flash, are strong general-purpose and reasoning models that punch well above their price point (which is free for the first 5M tokens). The API is fully OpenAI-compatible. The main catch is that this is a one-time grant, not a permanent free tier — once the 5M tokens are used or expire after 30 days, you'll need to pay. But for getting started, evaluating models, or running a significant batch of requests, nothing beats 5 million free tokens.
 
 ---
 
@@ -71,15 +71,47 @@ Cerebras runs on their CS-3 wafer-scale engine — a single chip the size of an 
 
 | Detail | Info |
 |--------|------|
-| **Models** | Mistral Large, Mistral Medium, Codestral, Mistral Small, Mistral Nemo, and more |
+| **Models** | Mistral Large 3, Mistral Medium 3.5, Mistral Small 4, Codestral, Ministral 3, and more |
 | **API Endpoint** | `https://api.mistral.ai/v1` (OpenAI-compatible) |
 | **Sign Up** | [console.mistral.ai](https://console.mistral.ai) |
 | **Auth** | API key from dashboard |
-| **Rate Limits** | Rate-limited (shared quota pools across models) |
+| **Rate Limits** | ~1 RPS, ~500K tokens/min (shared quota pools) |
 | **Credit Card** | Not required |
-| **Notes** | Free access to Mistral Large (flagship) and Codestral. Labeled "experiment" tier — not for production. |
+| **Notes** | Free access to Mistral Large (flagship) and Codestral. ~$10/month in API credits. Free-mode prompts may be used to train Mistral models. |
 
-Mistral's free "experiment" tier is remarkable because it includes access to Mistral Large, their flagship closed-source model, as well as Codestral, their specialized code generation model. Very few providers offer their best proprietary models for free. The API is OpenAI-compatible and the key is ready within minutes of signing up. The main limitation is the "experiment" label — this tier is explicitly not meant for production use, and the shared quota pools mean heavy use of one model affects your limits on others. Still, for development and prototyping, getting Mistral Large for free is hard to beat.
+Mistral's free tier is remarkable because it includes access to Mistral Large, their flagship closed-source model, as well as Codestral, their specialized code generation model. Very few providers offer their best proprietary models for free. The API is OpenAI-compatible and the key is ready within minutes of signing up. The free mode gives approximately $10/month in API credits. The shared quota pools mean heavy use of one model affects your limits on others. Still, for development and prototyping, getting Mistral Large for free is hard to beat.
+
+---
+
+### SiliconFlow
+
+| Detail | Info |
+|--------|------|
+| **Models** | 100+ models including Qwen, DeepSeek, Llama, GLM, and more |
+| **API Endpoint** | `https://api.siliconflow.cn/v1` (OpenAI-compatible) |
+| **Sign Up** | [siliconflow.com](https://www.siliconflow.com) |
+| **Auth** | API key from dashboard |
+| **Rate Limits** | Fixed rate limits per free model (varies) |
+| **Credit Card** | Not required for free models |
+| **Notes** | Permanently free models with fixed limits. Identity verification required. New accounts also get starter credits. |
+
+SiliconFlow is a Chinese/international AI inference platform with a catalog of over 100 models. The key feature is a set of **permanently free models** that don't expire — these are clearly marked as $0 on their pricing page. The free models include popular open-source models like Qwen and DeepSeek variants. Beyond the permanent free models, new accounts receive starter credits. The main drawback is that identity verification is required to sign up. The API is fully OpenAI-compatible, making it easy to integrate into existing tools and workflows. This is one of the few platforms where the free tier is truly permanent and not a limited-time trial.
+
+---
+
+### Zhipu AI (Z AI)
+
+| Detail | Info |
+|--------|------|
+| **Models** | GLM-4.7-Flash, GLM-4.6V-Flash (multimodal) |
+| **API Endpoint** | `https://open.bigmodel.cn/api/paas/v4` (OpenAI-compatible) |
+| **Sign Up** | [open.bigmodel.cn](https://open.bigmodel.cn) |
+| **Auth** | API key from user center |
+| **Rate Limits** | 1 concurrent request per free model |
+| **Credit Card** | Not required |
+| **Notes** | Permanent free tier. 200K context on GLM-4.7-Flash. Chinese and English. Low concurrency limit. |
+
+Zhipu AI offers permanent free access to their GLM model family. GLM-4.7-Flash supports up to 200K context tokens, which is one of the largest free context windows available. The models handle both Chinese and English well, making this a great choice if you need Chinese language support. The main limitation is the 1 concurrent request limit on free models, which means you can't parallelize requests. The API is OpenAI-compatible. Also offers a multimodal model (GLM-4.6V-Flash) for free, capable of processing images alongside text.
 
 ---
 
@@ -103,15 +135,15 @@ SambaNova's standout feature is offering free access to Llama 3.1 405B, the larg
 
 | Detail | Info |
 |--------|------|
-| **Models** | Command R+, Command R, Command R7B, Aya Expanse, Embed 4, Rerank 3.5 |
-| **API Endpoint** | `https://api.cohere.ai/v1` |
+| **Models** | Command A+, Command A, Command R+, Embed 4, Rerank 3.5, Aya Expanse |
+| **API Endpoint** | `https://api.cohere.com/v2` |
 | **Sign Up** | [dashboard.cohere.com](https://dashboard.cohere.com) |
 | **Auth** | Trial API key from dashboard |
 | **Rate Limits** | 20 req/min, 1,000 API calls/month |
 | **Credit Card** | Not required |
-| **Notes** | Best free tier for embeddings and reranking. Monthly call cap is the main limitation. |
+| **Notes** | Best free tier for embeddings and reranking. Non-commercial use only. Monthly call cap is the main limitation. |
 
-Cohere's free trial tier is unique because it includes access to specialized models that most other free providers don't offer — specifically Embed 4 (embedding model) and Rerank 3.5 (reranking model). If you're building search, RAG, or any system that needs embeddings or reranking, Cohere is the best free option for those specific tasks. The chat models (Command R+, Command R) are solid for general use as well. The main limitation is the 1,000 calls per month cap, which is low compared to other providers. This is a trial key for prototyping and research, not a high-volume production endpoint.
+Cohere's free trial tier is unique because it includes access to specialized models that most other free providers don't offer — specifically Embed 4 (embedding model) and Rerank 3.5 (reranking model). If you're building search, RAG, or any system that needs embeddings or reranking, Cohere is the best free option for those specific tasks. The chat models (Command A+, Command R+) are solid for general use as well, and now include multimodal capabilities. The main limitation is the 1,000 calls per month cap, which is low compared to other providers. This is a trial key for prototyping and research, not a high-volume production endpoint.
 
 ---
 
@@ -119,11 +151,11 @@ Cohere's free trial tier is unique because it includes access to specialized mod
 
 | Detail | Info |
 |--------|------|
-| **Models** | Llama 3.3 70B, Gemma 2 9B, Mistral 7B, Qwen 2.5, and more (rotates) |
+| **Models** | Llama 3.3 70B, Gemma, Mistral, Qwen, and dozens more (free models labeled) |
 | **API Endpoint** | `https://openrouter.ai/api/v1` (OpenAI-compatible) |
 | **Sign Up** | [openrouter.ai](https://openrouter.ai) |
 | **Auth** | API key from dashboard |
-| **Rate Limits** | Rate-limited, varies by model. Some models have token-per-minute caps. |
+| **Rate Limits** | Rate-limited, varies by model |
 | **Credit Card** | Not required for free tier |
 | **Notes** | The most reliable free LLM API. Large model selection, OpenAI-compatible, well-documented. |
 
@@ -135,7 +167,7 @@ OpenRouter is the gold standard for free LLM API access. They aggregate dozens o
 
 | Detail | Info |
 |--------|------|
-| **Models** | Llama 3.1, Mistral, CodeLlama, NV-EmbedQA, and more |
+| **Models** | Llama, Mistral, CodeLlama, NV-EmbedQA, GPT-oss-120B, and more |
 | **API Endpoint** | `https://integrate.api.nvidia.com/v1` (OpenAI-compatible) |
 | **Sign Up** | [build.nvidia.com](https://build.nvidia.com) |
 | **Auth** | API key from NVIDIA developer dashboard |
@@ -151,15 +183,15 @@ NVIDIA NIM provides free API access to a range of open-source models hosted on N
 
 | Detail | Info |
 |--------|------|
-| **Models** | Thousands of open-source models (free tier limited to models under ~10B parameters) |
-| **API Endpoint** | `https://api-inference.huggingface.co/models/{model_id}` |
+| **Models** | Thousands of open-source models (free tier routes to various inference providers) |
+| **API Endpoint** | `https://router.huggingface.co/v1` (OpenAI-compatible) |
 | **Sign Up** | [huggingface.co](https://huggingface.co) |
 | **Auth** | HF API token from account settings |
-| **Rate Limits** | ~100-200 req/hour |
-| **Credit Card** | Not required for free tier |
-| **Notes** | Largest model catalog. Free tier limited to smaller models. PRO tier ($9/mo) unlocks much more. |
+| **Rate Limits** | ~$0.10/month in Inference Provider credits for free users |
+| **Credit Card** | Not required |
+| **Notes** | Largest model catalog. Routes to Fireworks, Together, Nebius and others. PRO tier ($9/mo) unlocks much more. |
 
-Hugging Face offers access to the largest catalog of open-source models through their Inference API. The free tier is limited to models under approximately 10 billion parameters and has relatively low hourly rate limits, but the sheer variety of available models is unmatched. If you need a specific model for a specific task — a fine-tuned classification model, a small instruction-tuned model, a sentence transformer — Hugging Face probably has it. The free tier is best for light prototyping and experimentation with niche models. For heavier use, the PRO tier at $9/month is one of the cheapest paid options available anywhere.
+Hugging Face offers access to the largest catalog of open-source models through their Inference API. The free tier provides a small monthly credit that routes requests to various inference providers (Fireworks, Together, Nebius, etc.). The sheer variety of available models is unmatched — if you need a specific fine-tuned model, a sentence transformer, or a niche classification model, Hugging Face probably has it. The free tier is best for light prototyping and experimentation. For heavier use, the PRO tier at $9/month is one of the cheapest paid options available anywhere.
 
 ---
 
@@ -167,15 +199,31 @@ Hugging Face offers access to the largest catalog of open-source models through 
 
 | Detail | Info |
 |--------|------|
-| **Models** | Llama, Mistral, Qwen, Phi, and more (broad open-source catalog) |
+| **Models** | 75+ models including Llama, Mistral, Qwen, DeepSeek R1, GPT-oss-120B, and more |
 | **API Endpoint** | `https://api.cloudflare.com/client/v4/accounts/{account_id}/ai/run/@cf/{model}` |
 | **Sign Up** | [dash.cloudflare.com](https://dash.cloudflare.com) |
 | **Auth** | Cloudflare API token |
-| **Rate Limits** | 10,000 Neurons/day (Cloudflare's compute unit) |
+| **Rate Limits** | 10,000 Neurons/day |
 | **Credit Card** | Not required for Workers Free plan |
-| **Notes** | Runs on Cloudflare's edge network. Neuron-based billing (not token-based). Also does image generation, classification. |
+| **Notes** | Runs on Cloudflare's edge network. 75+ models on free tier. Neuron-based billing. Also does image generation, classification. |
 
-Cloudflare Workers AI runs models on Cloudflare's global edge network, which means low latency from anywhere in the world. The billing uses "Neurons" (a normalized compute unit) rather than raw tokens, so costs vary by model size — smaller models get you more requests per Neuron. The free plan gives 10,000 Neurons per day. Beyond LLMs, Workers AI also offers image generation, translation, classification, and other AI tasks, making it a versatile free AI platform. Requires a Cloudflare account. The API format is not OpenAI-compatible — it uses Cloudflare's own REST format.
+Cloudflare Workers AI runs models on Cloudflare's global edge network, which means low latency from anywhere in the world. The billing uses "Neurons" (a normalized compute unit) rather than raw tokens, so costs vary by model size — smaller models get you more requests per Neuron. The free plan gives 10,000 Neurons per day and now offers 75+ models on the free tier, including strong models like DeepSeek R1 Distill and GPT-oss-120B. Beyond LLMs, Workers AI also offers image generation, translation, classification, and other AI tasks. Requires a Cloudflare account. The API format is not OpenAI-compatible — it uses Cloudflare's own REST format.
+
+---
+
+### LLM7.io
+
+| Detail | Info |
+|--------|------|
+| **Models** | GPT-oss-20B, Mistral Nemo, MiniMax M2.7, and more |
+| **API Endpoint** | `https://api.llm7.io/v1` (OpenAI-compatible) |
+| **Sign Up** | None required for anonymous access |
+| **Auth** | No key needed (anonymous) or free token from token.llm7.io for higher limits |
+| **Rate Limits** | 10 RPM, 60 req/hr (anonymous); higher with free token |
+| **Credit Card** | Not required |
+| **Notes** | The only provider on this list that requires zero sign-up. Just hit the API. |
+
+LLM7.io is unique on this list because it requires **no account and no API key** for anonymous access. You can literally start making requests immediately with zero friction. The anonymous tier has 128K context on models like GPT-oss-20B and Mistral Nemo. If you want higher rate limits, you can grab a free token from their site, but even the anonymous tier is usable. This makes LLM7.io the fastest provider to get started with — no sign-up form, no email verification, no dashboard. Just point your code at the endpoint and go.
 
 ---
 
@@ -199,15 +247,15 @@ OpenAI's Codex CLI provides free code generation capabilities through a terminal
 
 | Detail | Info |
 |--------|------|
-| **Models** | Various (rotates frequently, check their dashboard for current offerings) |
-| **API Endpoint** | OpenAI-compatible API |
-| **Sign Up** | [kilocode.ai](https://kilocode.ai) or their Discord |
-| **Auth** | API key provided after sign up |
-| **Rate Limits** | Varies by model, generally generous for free tier |
+| **Models** | Nemotron-3-Ultra-550B, Step-3.7-Flash, Laguna S 2.1, Tencent Hy3, and more (free pool) |
+| **API Endpoint** | `https://api.kilo.ai/api/gateway` (OpenAI-compatible) |
+| **Sign Up** | [kilo.ai](https://app.kilo.ai) |
+| **Auth** | No API key required for free models |
+| **Rate Limits** | 200 req/hr |
 | **Credit Card** | Not required |
-| **Notes** | Gateway/aggregator — routes to multiple model providers. Free models rotate. |
+| **Notes** | Auto-router (`kilo-auto/free`) picks the best model. No key needed. 200 req/hr is very generous. |
 
-Kilocode Gateway acts as an aggregator that provides access to multiple models through an OpenAI-compatible API format. Their free tier offers a rotating selection of models, which can include both open-source and proprietary models depending on availability. The API format means you can drop it into any tool that supports the OpenAI API spec by changing the base URL and API key. Check their dashboard or Discord for the current list of available free models, as the selection changes over time.
+Kilocode Gateway is an aggregator that provides access to multiple models through an OpenAI-compatible API. Their standout feature is the `kilo-auto/free` auto-router that dynamically routes your requests to the best available model in the free pool — no API key needed at all. At 200 requests per hour, the rate limit is generous. The free model pool includes powerful models like Nemotron-3-Ultra-550B (1M context) and Laguna S 2.1 for code generation. Check their dashboard for the current list of available free models, as the selection changes over time.
 
 ---
 
@@ -215,18 +263,21 @@ Kilocode Gateway acts as an aggregator that provides access to multiple models t
 
 | Provider | API Format | All Models Free | Best For |
 |----------|-----------|----------------|----------|
-| Google Gemini | Google API | Yes | Long context (up to 2M tokens) |
+| Google Gemini | Google API | Yes | Long context (up to 1M tokens) |
 | Groq | OpenAI-compatible | Yes | Speed + generous limits |
-| Cerebras | OpenAI-compatible | Yes | Fastest raw inference |
+| DeepSeek | OpenAI-compatible | Trial credits | Strong reasoning, best signup bonus (5M tokens) |
 | Mistral AI | OpenAI-compatible | Yes | Flagship models for free |
+| SiliconFlow | OpenAI-compatible | Partial (free labeled) | Permanently free models, Chinese/international |
+| Zhipu AI | OpenAI-compatible | Partial (free models) | GLM models, Chinese/English, 200K context |
 | SambaNova | OpenAI-compatible | Partial | Llama 3.1 405B access |
 | Cohere | Proprietary | Yes | Embeddings + reranking |
 | OpenRouter | OpenAI-compatible | Partial (free labeled) | General-purpose, most reliable |
 | NVIDIA NIM | OpenAI-compatible | Yes | Embeddings, NVIDIA-optimized models |
-| Hugging Face | HF API | Partial (<=10B params) | Largest model catalog |
-| Cloudflare Workers AI | CF REST | Yes | Edge inference, versatile AI tasks |
+| Hugging Face | OpenAI-compatible | Partial (credit-metered) | Largest model catalog |
+| Cloudflare Workers AI | CF REST | Yes | Edge inference, 75+ free models |
+| LLM7.io | OpenAI-compatible | Yes | Zero-friction anonymous access |
 | OpenAI Codex | CLI | N/A | Code generation tasks |
-| Kilocode Gateway | OpenAI-compatible | Rotating | Rotating model access |
+| Kilocode Gateway | OpenAI-compatible | Free labeled | Auto-router, 200 req/hr, no key needed |
 
 ## Contributing
 
